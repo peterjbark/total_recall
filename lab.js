@@ -266,22 +266,69 @@ console.log(test3);
 
 // H. printLongestWord
 function printLongestWord(array){
-
-}
-
+        let word ="";
+        for(let i = 0; i < array.length; i++){
+                if (word.length < array[i].length){
+                        word = array[i];
+                }
+        } 
+        return word;
+}       
+let test4 = printLongestWord(["two","three","elephant","ant"]);
+console.log(test4);
 
 // V. Objects
 // A. Make a User Object
+const user = {name:"Peter", email:"peter@peter.com", age: 27, purchased:[]};
 
 // B. Update the User
+user.email = "new@new.com"
+user.age++;
+console.log(user);
 
 // C. Adding Keys and Values
+user.location = "Los Angeles";
+console.log(user)
 
 // D. Shopaholic!
+user.purchased.push("Carbohydrates");
+user.purchased.push("Peace of Mind");
+user.purchased.push("Merino jodhpurs");
+console.log(user.purchased[2]);
 
 // E. Object within an Object
+user.friend = {name:"Friend",age:24,location:"San Diego",purchased:[]}
+console.log(user.friend.name);
+console.log(user.friend.location);
+user.friend.age = 55;
+user.friend.purchased.push("The One Ring");
+user.friend.purchased.push("A latte");
+console.log(user.friend.purchased[1]);
 
 // F. Loops
+function purchased(arr){
+for (let i = 0; i < arr.length; i++){
+      console.log(arr[i])  
+}
+}
+purchased(user.purchased);
+purchased(user.friend.purchased);
 
 // G. Functions Operating on Objects
+function updateUser(){
+       user.age++;
+       user.upper =  user.name.toUpperCase();
+       user.name = user.upper;
+       delete user.upper;
+}
+updateUser();
+console.log(user);
 
+function oldAndLoud(person){
+        person.age++;
+        person.upper =  person.name.toUpperCase();
+        person.name = person.upper;
+        delete person.upper;
+}
+oldAndLoud(user);
+console.log(user);
